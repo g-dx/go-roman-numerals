@@ -50,3 +50,21 @@ func TestDecode(t *testing.T) {
 		}
 	}
 }
+
+func BenchmarkEncode(b *testing.B) {
+
+	for i := 0; i < b.N; i++ {
+		for _, test := range data {
+			Encode(test.val)
+		}
+	}
+}
+
+func BenchmarkDecode(b *testing.B) {
+
+	for i := 0; i < b.N; i++ {
+		for _, test := range data {
+			Decode(test.numerals)
+		}
+	}
+}
